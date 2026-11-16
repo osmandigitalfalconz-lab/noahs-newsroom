@@ -11,9 +11,9 @@ content from Noah Christopher's WLTLH newsroom (localnews.wltlh.com).
 - Didone-style serif headlines (Playfair Display, Georgia fallback) with
   uppercase letter-spaced sans labels, kickers and bylines.
 - Live date/time strip, centred wordmark masthead, hairline-ruled section nav.
-- Hero: numbered top-5 stories on the left, large visual on the right that
-  cycles on its own (the template's photo advances independently of the
-  headline — reproduced here); clicking a numbered story switches the lead.
+- Hero: numbered top-5 stories on the left, large photo on the right. The
+  photo always stays with its headline — one cycle advances both together,
+  and clicking a numbered story switches its photo at the same time.
 - The wire strip, six desks with tabs, the long read with four numbered
   chapters and a red rule, Latest list with a sidebar, a dark section, a
   "why" band with stats and bureaus, a newsletter signup, and the footer.
@@ -54,9 +54,18 @@ scenes used as illustrations, not photographs of the fictional events reported.
   real book pages on books.wltlh.com.
 - The Dispatch signup form does not pretend to subscribe anyone: submitting
   shows a note that signup lives on the newsroom site, with a link.
-- Story "photos" are CSS typographic panels (no photos exist on the newsroom).
+- Story photos are real, freely licensed Los Angeles scenes from `assets/`
+  (see Photos above), not photographs of the fictional events reported.
 
 ## Run / deploy
 
 Open `index.html` in a browser. No build step. Google Fonts are loaded from
-the web with serif/sans fallbacks if offline.
+the web with serif/sans fallbacks if offline. To deploy: upload `index.html`
+and `assets/` to any static host, keeping the relative paths. The repo is
+deployed on Vercel at https://noahs-newsroom.vercel.app/ (auto-deploys from
+`main`).
+
+The header (grid-area masthead + sticky bar), footer and responsive
+breakpoints were ported from the preview build on 2026-11-16 so the repo and
+the preview match. The photos differ between the two on purpose: the repo
+uses the 9 credited LA photos in `assets/`, the preview uses its own.

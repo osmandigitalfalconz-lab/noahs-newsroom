@@ -653,7 +653,7 @@ footer{background:var(--black);color:var(--cream);padding:56px 0 32px}
      dek:"The longtime Milagro Fund leader collapsed before four hundred people at his retirement gala. Detectives are reconstructing a night that everyone saw and nobody can yet explain.",
      byline:"Los Angeles \u00b7 20 October 2026",cls:"v5"}
   ];
-  var cur=0, visual=0;
+  var cur=0;
   var $=function(id){return document.getElementById(id);};
   function pad(n){return (n<10?"0":"")+n;}
   function showStory(i,fromList){
@@ -665,10 +665,9 @@ footer{background:var(--black);color:var(--cream);padding:56px 0 32px}
     $("hero-counter").textContent=pad(i+1)+" / 05";
     var btns=document.querySelectorAll("#hero-list button");
     btns.forEach(function(b){b.classList.toggle("active",+b.dataset.i===i);});
-    if(fromList){setVisual(i);}
+    setVisual(i);
   }
   function setVisual(i){
-    visual=i;
     var s=stories[i],ph=$("hero-ph");
     ph.className="ph"+(s.cls?" "+s.cls:"");
     $("hero-img").src=s.img;$("hero-img").alt=s.alt;
@@ -680,11 +679,11 @@ footer{background:var(--black);color:var(--cream);padding:56px 0 32px}
   document.querySelectorAll("#hero-list button").forEach(function(b){
     b.addEventListener("click",function(){showStory(+b.dataset.i,true);});
   });
-  /* the template's photo cycles on its own, apart from the headline */
+  /* the hero photo stays with its headline: one cycle advances both together */
   var heroPh=$("hero-ph");
-  var cycle=setInterval(function(){setVisual((visual+1)%stories.length);},6000);
+  var cycle=setInterval(function(){showStory((cur+1)%stories.length);},6000);
   heroPh.addEventListener("mouseenter",function(){clearInterval(cycle);});
-  heroPh.addEventListener("mouseleave",function(){clearInterval(cycle);cycle=setInterval(function(){setVisual((visual+1)%stories.length);},6000);});
+  heroPh.addEventListener("mouseleave",function(){clearInterval(cycle);cycle=setInterval(function(){showStory((cur+1)%stories.length);},6000);});
 
   /* desk tabs */
   document.querySelectorAll(".tabs button").forEach(function(b){

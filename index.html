@@ -64,19 +64,13 @@ h1,h2,h3{font-family:var(--serif);font-weight:700;line-height:1.05}
 .hero-list button.active .n{color:var(--red)}
 .hero-visual{position:relative}
 .ph{position:relative;overflow:hidden;background:#1c1a17;color:var(--cream);display:flex;flex-direction:column;justify-content:flex-end;min-height:420px;padding:28px}
-.ph::before{content:"";position:absolute;inset:0;background:
-  radial-gradient(120% 90% at 80% 0%,rgba(224,30,46,.55),transparent 55%),
-  radial-gradient(100% 100% at 0% 100%,rgba(245,240,230,.16),transparent 50%),
-  linear-gradient(160deg,#26221d,#0e0d0b)}
-.ph>*{position:relative;z-index:1}
-.ph .big{font-family:var(--serif);font-weight:900;font-size:clamp(40px,5vw,64px);line-height:1;text-transform:uppercase;letter-spacing:-.01em}
+.ph img.ph-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;z-index:0}
+.ph::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.05) 40%,rgba(0,0,0,.62));z-index:1}
+.ph>*{position:relative;z-index:2}
+.ph .big{font-family:var(--serif);font-weight:900;font-size:clamp(40px,5vw,64px);line-height:1;text-transform:uppercase;letter-spacing:-.01em;text-shadow:0 2px 18px rgba(0,0,0,.5)}
 .ph .big em{color:var(--red);font-style:normal}
 .ph .tag{position:absolute;top:16px;left:16px;background:var(--red);color:#fff;font:700 11px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;padding:7px 10px}
 .ph .ph-sub{margin-top:12px;font:600 11px/1.6 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:rgba(245,240,230,.75)}
-.ph.v2::before{background:radial-gradient(120% 90% at 20% 0%,rgba(70,110,160,.6),transparent 55%),radial-gradient(100% 100% at 100% 100%,rgba(245,240,230,.14),transparent 50%),linear-gradient(160deg,#1d232b,#0d0f12)}
-.ph.v3::before{background:radial-gradient(120% 90% at 80% 10%,rgba(210,150,60,.55),transparent 55%),linear-gradient(160deg,#2b2417,#14100a)}
-.ph.v4::before{background:radial-gradient(120% 90% at 20% 0%,rgba(190,170,120,.5),transparent 55%),linear-gradient(160deg,#2a2721,#121110)}
-.ph.v5::before{background:radial-gradient(120% 90% at 80% 0%,rgba(40,60,120,.65),transparent 55%),linear-gradient(160deg,#181c28,#0b0d13)}
 .ph-cap{font:600 11px/1.6 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-top:12px}
 
 /* ---------- wire ---------- */
@@ -124,8 +118,8 @@ h1,h2,h3{font-family:var(--serif);font-weight:700;line-height:1.05}
 .latest-grid{display:grid;grid-template-columns:2fr 1fr;gap:56px;margin-top:32px;align-items:start}
 .story-row{display:grid;grid-template-columns:120px 1fr;gap:20px;padding:22px 0;border-bottom:1px solid var(--rule);align-items:start}
 .story-row:first-child{padding-top:0}
-.story-row .thumb{height:88px;display:flex;align-items:center;justify-content:center;background:#1c1a17;color:var(--cream);font-family:var(--serif);font-weight:900;font-size:30px;text-transform:uppercase}
-.story-row .thumb.t2{background:#1d232b}.story-row .thumb.t3{background:#2b2417}.story-row .thumb.t4{background:#2a2721}.story-row .thumb.t5{background:#181c28}.story-row .thumb.t6{background:#3a1418}
+.story-row .thumb{height:88px;overflow:hidden;background:#1c1a17}
+.story-row .thumb img{width:100%;height:100%;object-fit:cover;display:block}
 .story-row h3{font-size:clamp(22px,2.2vw,28px);line-height:1.15}
 .story-row h3 a:hover{color:var(--red);text-decoration:none}
 .story-row .ex{font-size:14.5px;color:#2b2b2b;margin-top:6px}
@@ -263,6 +257,7 @@ footer{background:var(--black);color:var(--cream);padding:56px 0 32px}
   </div>
   <div class="hero-visual">
     <div class="ph" id="hero-ph">
+      <img class="ph-img" id="hero-img" src="assets/concert-hall.jpg" alt="Walt Disney Concert Hall in downtown Los Angeles">
       <span class="tag" id="hero-tag">Arts &amp; City</span>
       <div class="big" id="hero-big">The<br>Concert<em>.</em></div>
       <div class="ph-sub" id="hero-cap">The tribute, before the applause ended</div>
@@ -302,7 +297,7 @@ footer{background:var(--black);color:var(--cream);padding:56px 0 32px}
 
     <div class="desk-panel active" id="desk-investigation">
       <div class="desk-lead">
-        <div class="ph v5"><span class="tag">Investigation</span><div class="big">The<br>Money<em>.</em></div><div class="ph-sub">The mail drop on Wilshire Boulevard</div></div>
+        <div class="ph v5"><img class="ph-img" src="assets/wilshire-boulevard.jpg" alt="Wilshire Boulevard at dusk, with the Wiltern sign"><span class="tag">Investigation</span><div class="big">The<br>Money<em>.</em></div><div class="ph-sub">The mail drop on Wilshire Boulevard</div></div>
         <h3><a href="https://localnews.wltlh.com/">The Money Behind the Yard Signs: How LA City Council Candidates Launder Donor Intent</a></h3>
         <p class="dek">A six-month investigation into campaign finance filings reveals a network of consulting firms, shell LLCs, and pass-through payments.</p>
         <p class="byline">Investigation · 17 December</p>
@@ -319,7 +314,7 @@ footer{background:var(--black);color:var(--cream);padding:56px 0 32px}
 
     <div class="desk-panel" id="desk-crime">
       <div class="desk-lead">
-        <div class="ph"><span class="tag">Crime &amp; Courts</span><div class="big">The<br>Auction<em>.</em></div><div class="ph-sub">A locked service room, after a museum benefit</div></div>
+        <div class="ph"><img class="ph-img" src="assets/gavel.jpg" alt="A brass gavel"><span class="tag">Crime &amp; Courts</span><div class="big">The<br>Auction<em>.</em></div><div class="ph-sub">A locked service room, after a museum benefit</div></div>
         <h3><a href="https://localnews.wltlh.com/">Freddy Ostrander Finished the Auction. He Never Collected His Car.</a></h3>
         <p class="dek">A search after a museum benefit ended in a locked service room. The veteran auctioneer&rsquo;s assistant first noticed an unsigned settlement sheet.</p>
         <p class="byline">Crime &amp; Courts · 22 October</p>
@@ -335,7 +330,7 @@ footer{background:var(--black);color:var(--cream);padding:56px 0 32px}
 
     <div class="desk-panel" id="desk-citylife">
       <div class="desk-lead">
-        <div class="ph v4"><span class="tag">City Life</span><div class="big">The<br>Invitations<em>.</em></div><div class="ph-sub">A charity circuit built on showing up</div></div>
+        <div class="ph v4"><img class="ph-img" src="assets/champagne-toast.jpg" alt="Champagne flutes on a table"><span class="tag">City Life</span><div class="big">The<br>Invitations<em>.</em></div><div class="ph-sub">A charity circuit built on showing up</div></div>
         <h3><a href="https://localnews.wltlh.com/">The Invitations Keep Coming. The Answers Are Getting Harder.</a></h3>
         <p class="dek">Canceled benefits and anxious guests are changing a charity circuit built on showing up. The workers behind the evenings are carrying the uncertainty, too.</p>
         <p class="byline">City Life · 23 October</p>
@@ -351,7 +346,7 @@ footer{background:var(--black);color:var(--cream);padding:56px 0 32px}
 
     <div class="desk-panel" id="desk-valley">
       <div class="desk-lead">
-        <div class="ph v2"><span class="tag">The Valley</span><div class="big">Sun<br>Valley<em>.</em></div><div class="ph-sub">Tuxford Street, first light</div></div>
+        <div class="ph v2"><img class="ph-img" src="assets/storage-yard.jpg" alt="Stacked shipping containers in a storage yard"><span class="tag">The Valley</span><div class="big">Sun<br>Valley<em>.</em></div><div class="ph-sub">Tuxford Street, first light</div></div>
         <h3><a href="https://localnews.wltlh.com/">Harlan Peck Found Dead at Sun Valley Storage Yard After an Overnight Vigil</a></h3>
         <p class="dek">Police entered the Tuxford Street property with a warrant at first light. The yard served the city&rsquo;s stage and equipment trade.</p>
         <p class="byline">The Valley · 25 October</p>
@@ -368,7 +363,7 @@ footer{background:var(--black);color:var(--cream);padding:56px 0 32px}
 
     <div class="desk-panel" id="desk-arts">
       <div class="desk-lead">
-        <div class="ph v3"><span class="tag">Arts &amp; City</span><div class="big">The<br>Concert<em>.</em></div><div class="ph-sub">The tribute, before the applause ended</div></div>
+        <div class="ph v3"><img class="ph-img" src="assets/concert-hall.jpg" alt="Walt Disney Concert Hall in downtown Los Angeles"><span class="tag">Arts &amp; City</span><div class="big">The<br>Concert<em>.</em></div><div class="ph-sub">The tribute, before the applause ended</div></div>
         <h3><a href="https://localnews.wltlh.com/">The Concert Was a Tribute to Julian Armitage. He Died Before the Applause Ended.</a></h3>
         <p class="dek">The conductor&rsquo;s former students played in his honour as he sat in a box with his wife. A celebration of his life became a police investigation.</p>
         <p class="byline">Arts &amp; City · 26 October</p>
@@ -384,7 +379,7 @@ footer{background:var(--black);color:var(--cream);padding:56px 0 32px}
 
     <div class="desk-panel" id="desk-la">
       <div class="desk-lead">
-        <div class="ph v5"><span class="tag">Los Angeles</span><div class="big">The<br>Grand<br>Pacific<em>.</em></div><div class="ph-sub">Four hundred witnesses, one last toast</div></div>
+        <div class="ph v5"><img class="ph-img" src="assets/grand-hotel-lobby.jpg" alt="The lobby of a grand Los Angeles hotel"><span class="tag">Los Angeles</span><div class="big">The<br>Grand<br>Pacific<em>.</em></div><div class="ph-sub">Four hundred witnesses, one last toast</div></div>
         <h3><a href="https://localnews.wltlh.com/">Ray Delgado Came to the Grand Pacific for His Last Toast. The Guests Left as Witnesses.</a></h3>
         <p class="dek">The longtime Milagro Fund leader collapsed before four hundred people at his retirement gala. Detectives are reconstructing a night that everyone saw and nobody can yet explain.</p>
         <p class="byline">Los Angeles · 20 October</p>
@@ -410,7 +405,7 @@ footer{background:var(--black);color:var(--cream);padding:56px 0 32px}
   <p class="byline" style="margin-top:12px">Investigation · 17 December · A six-month investigation</p>
   <div class="lr-grid">
     <div class="lr-visual">
-      <div class="ph v5"><span class="tag">Investigation</span><div class="big">The<br>Wilshire<br>Pipeline<em>.</em></div><div class="ph-sub">Nine firms, one mail drop, $2.1 million</div></div>
+      <div class="ph v5"><img class="ph-img" src="assets/wilshire-boulevard.jpg" alt="Wilshire Boulevard at dusk, with the Wiltern sign"><span class="tag">Investigation</span><div class="big">The<br>Wilshire<br>Pipeline<em>.</em></div><div class="ph-sub">Nine firms, one mail drop, $2.1 million</div></div>
       <p class="ph-cap">The mail drop on Wilshire Boulevard</p>
     </div>
     <div>
@@ -431,12 +426,12 @@ footer{background:var(--black);color:var(--cream);padding:56px 0 32px}
   </div>
   <div class="latest-grid">
     <div>
-      <article class="story-row"><div class="thumb">JA</div><div><p class="eyebrow"><span class="dot">●</span> Arts &amp; City</p><h3><a href="https://localnews.wltlh.com/">The Concert Was a Tribute to Julian Armitage. He Died Before the Applause Ended.</a></h3><p class="ex">The conductor&rsquo;s former students played in his honour as he sat in a box with his wife.</p><p class="byline">Arts &amp; City · 26 October 2026</p></div></article>
-      <article class="story-row"><div class="thumb t2">HP</div><div><p class="eyebrow"><span class="dot">●</span> The Valley</p><h3><a href="https://localnews.wltlh.com/">Harlan Peck Found Dead at Sun Valley Storage Yard After an Overnight Vigil</a></h3><p class="ex">Police entered the Tuxford Street property with a warrant at first light.</p><p class="byline">The Valley · 25 October 2026</p></div></article>
-      <article class="story-row"><div class="thumb t3">AS</div><div><p class="eyebrow"><span class="dot">●</span> The Valley</p><h3><a href="https://localnews.wltlh.com/">A Costume Maker&rsquo;s Door Was Closed in the Middle of the Afternoon. Police Found Andor Szabo Inside.</a></h3><p class="ex">The North Hollywood craftsman spent forty years building bodies for film and the stage.</p><p class="byline">The Valley · 24 October 2026</p></div></article>
-      <article class="story-row"><div class="thumb t4">TI</div><div><p class="eyebrow"><span class="dot">●</span> City Life</p><h3><a href="https://localnews.wltlh.com/">The Invitations Keep Coming. The Answers Are Getting Harder.</a></h3><p class="ex">Canceled benefits and anxious guests are changing a charity circuit built on showing up.</p><p class="byline">City Life · 23 October 2026</p></div></article>
-      <article class="story-row"><div class="thumb t5">BH</div><div><p class="eyebrow"><span class="dot">●</span> Los Angeles</p><h3><a href="https://localnews.wltlh.com/">Bootsie Hale Collapsed in Her Own Garden. Ninety Guests Were Asked to Stay.</a></h3><p class="ex">A Hancock Park luncheon ended with paramedics on the lawn and detectives collecting witness accounts.</p><p class="byline">Los Angeles · 23 October 2026</p></div></article>
-      <article class="story-row"><div class="thumb t6">FO</div><div><p class="eyebrow"><span class="dot">●</span> Crime &amp; Courts</p><h3><a href="https://localnews.wltlh.com/">Freddy Ostrander Finished the Auction. He Never Collected His Car.</a></h3><p class="ex">A search after a museum benefit ended in a locked service room.</p><p class="byline">Crime &amp; Courts · 22 October 2026</p></div></article>
+      <article class="story-row"><div class="thumb"><img src="assets/concert-hall.jpg" alt="Walt Disney Concert Hall"></div><div><p class="eyebrow"><span class="dot">●</span> Arts &amp; City</p><h3><a href="https://localnews.wltlh.com/">The Concert Was a Tribute to Julian Armitage. He Died Before the Applause Ended.</a></h3><p class="ex">The conductor&rsquo;s former students played in his honour as he sat in a box with his wife.</p><p class="byline">Arts &amp; City · 26 October 2026</p></div></article>
+      <article class="story-row"><div class="thumb"><img src="assets/storage-yard.jpg" alt="Stacked shipping containers"></div><div><p class="eyebrow"><span class="dot">●</span> The Valley</p><h3><a href="https://localnews.wltlh.com/">Harlan Peck Found Dead at Sun Valley Storage Yard After an Overnight Vigil</a></h3><p class="ex">Police entered the Tuxford Street property with a warrant at first light.</p><p class="byline">The Valley · 25 October 2026</p></div></article>
+      <article class="story-row"><div class="thumb"><img src="assets/stage.jpg" alt="Actors in period costume on stage"></div><div><p class="eyebrow"><span class="dot">●</span> The Valley</p><h3><a href="https://localnews.wltlh.com/">A Costume Maker&rsquo;s Door Was Closed in the Middle of the Afternoon. Police Found Andor Szabo Inside.</a></h3><p class="ex">The North Hollywood craftsman spent forty years building bodies for film and the stage.</p><p class="byline">The Valley · 24 October 2026</p></div></article>
+      <article class="story-row"><div class="thumb"><img src="assets/champagne-toast.jpg" alt="Champagne flutes"></div><div><p class="eyebrow"><span class="dot">●</span> City Life</p><h3><a href="https://localnews.wltlh.com/">The Invitations Keep Coming. The Answers Are Getting Harder.</a></h3><p class="ex">Canceled benefits and anxious guests are changing a charity circuit built on showing up.</p><p class="byline">City Life · 23 October 2026</p></div></article>
+      <article class="story-row"><div class="thumb"><img src="assets/downtown-skyline.jpg" alt="Downtown Los Angeles skyline at dusk"></div><div><p class="eyebrow"><span class="dot">●</span> Los Angeles</p><h3><a href="https://localnews.wltlh.com/">Bootsie Hale Collapsed in Her Own Garden. Ninety Guests Were Asked to Stay.</a></h3><p class="ex">A Hancock Park luncheon ended with paramedics on the lawn and detectives collecting witness accounts.</p><p class="byline">Los Angeles · 23 October 2026</p></div></article>
+      <article class="story-row"><div class="thumb"><img src="assets/gavel.jpg" alt="A brass gavel"></div><div><p class="eyebrow"><span class="dot">●</span> Crime &amp; Courts</p><h3><a href="https://localnews.wltlh.com/">Freddy Ostrander Finished the Auction. He Never Collected His Car.</a></h3><p class="ex">A search after a museum benefit ended in a locked service room.</p><p class="byline">Crime &amp; Courts · 22 October 2026</p></div></article>
     </div>
     <aside class="sidebar">
       <p class="eyebrow"><span class="dot">●</span> The Confessor file</p>
@@ -494,7 +489,7 @@ footer{background:var(--black);color:var(--cream);padding:56px 0 32px}
     </div>
     <div class="dispatch-grid">
       <div class="dispatch-visual">
-        <div class="ph v5"><span class="tag">Dispatch</span><div class="big">The<br>Paper<br>Trail<em>.</em></div><div class="ph-sub">Records, court updates, newsroom notes</div></div>
+        <div class="ph v5"><img class="ph-img" src="assets/newspapers.jpg" alt="A stack of newspapers"><span class="tag">Dispatch</span><div class="big">The<br>Paper<br>Trail<em>.</em></div><div class="ph-sub">Records, court updates, newsroom notes</div></div>
         <p class="ph-cap">Latest dispatch · 17 December</p>
       </div>
       <div class="acc" id="acc">
@@ -557,7 +552,7 @@ footer{background:var(--black);color:var(--cream);padding:56px 0 32px}
 <section class="wrap newsletter">
   <div class="news-grid">
     <div class="news-visual">
-      <div class="ph"><span class="tag">Dispatch</span><div class="big">When the<br>Paper<br>Trail<br>Moves<em>.</em></div><div class="ph-sub">New records, court updates, newsroom notes</div></div>
+      <div class="ph"><img class="ph-img" src="assets/downtown-skyline.jpg" alt="Downtown Los Angeles skyline over Echo Park Lake at dusk"><span class="tag">Dispatch</span><div class="big">When the<br>Paper<br>Trail<br>Moves<em>.</em></div><div class="ph-sub">New records, court updates, newsroom notes</div></div>
       <p class="ph-cap">The WLTLH Dispatch — sign up at the newsroom</p>
     </div>
     <form class="news-form" id="news-form">
@@ -614,6 +609,7 @@ footer{background:var(--black);color:var(--cream);padding:56px 0 32px}
         </ul>
       </div>
     </div>
+    <p style="margin-top:28px;font-size:11.5px;line-height:1.6;color:rgba(245,240,230,.5)">Photographs (CC BY / CC BY-SA, via Openverse): Walt Disney Concert Hall by Ken Lund · Wilshire Boulevard by InSapphoWeTrust · Echo Park Lake skyline by Adoramassey · Containers by stu00c · Stage by USAG-Humphreys · Champagne by Waldo Jaquith · Wilshire Grand Hotel lobby by Prayitno · Gavel by walknboston · Newspapers by NS Newsflash. Full credits and source links: <a href="assets/CREDITS.md">assets/CREDITS.md</a>. Photos are generic Los Angeles scenes, not photographs of the fictional events reported.</p>
     <div class="foot-bottom">
       <span>© 2026 WLTLH · Los Angeles · In Print &amp; In Fiction</span>
       <span>A story world by Noah Christopher</span>
@@ -636,23 +632,23 @@ footer{background:var(--black);color:var(--cream);padding:56px 0 32px}
 
   /* hero stories */
   var stories=[
-    {tag:"Arts & City",big:"The<br>Concert<em>.</em>",cap:"The tribute, before the applause ended",cap2:"A celebration of his life became a police investigation",
+    {tag:"Arts & City",img:"assets/concert-hall.jpg",alt:"Walt Disney Concert Hall in downtown Los Angeles",big:"The<br>Concert<em>.</em>",cap:"The tribute, before the applause ended",cap2:"A celebration of his life became a police investigation",
      title:"The concert was a tribute to Julian Armitage. He died before the applause ended.",
      dek:"The conductor\u2019s former students played in his honour as he sat in a box with his wife. A celebration of his life became a police investigation.",
      byline:"Arts & City \u00b7 26 October 2026",cls:""},
-    {tag:"The Valley",big:"Sun<br>Valley<em>.</em>",cap:"Tuxford Street, first light",cap2:"Police entered the property with a warrant at first light",
+    {tag:"The Valley",img:"assets/storage-yard.jpg",alt:"Stacked shipping containers in a storage yard",big:"Sun<br>Valley<em>.</em>",cap:"Tuxford Street, first light",cap2:"Police entered the property with a warrant at first light",
      title:"Harlan Peck found dead at Sun Valley storage yard after an overnight vigil.",
      dek:"Police entered the Tuxford Street property with a warrant at first light. The yard served the city\u2019s stage and equipment trade.",
      byline:"The Valley \u00b7 25 October 2026",cls:"v2"},
-    {tag:"The Valley",big:"North<br>Hollywood<em>.</em>",cap:"The costume shop, mid-afternoon",cap2:"Forty years building bodies for film and the stage",
+    {tag:"The Valley",img:"assets/stage.jpg",alt:"Actors in period costume taking a bow on stage",big:"North<br>Hollywood<em>.</em>",cap:"The costume shop, mid-afternoon",cap2:"Forty years building bodies for film and the stage",
      title:"A costume maker\u2019s door was closed in the middle of the afternoon. Police found Andor Szabo inside.",
      dek:"The North Hollywood craftsman spent forty years building bodies for film and the stage. His small shop became a crime scene on a working afternoon.",
      byline:"The Valley \u00b7 24 October 2026",cls:"v3"},
-    {tag:"City Life",big:"The<br>Invitations<em>.</em>",cap:"A charity circuit built on showing up",cap2:"The workers behind the evenings are carrying the uncertainty, too",
+    {tag:"City Life",img:"assets/champagne-toast.jpg",alt:"Champagne flutes on a table",big:"The<br>Invitations<em>.</em>",cap:"A charity circuit built on showing up",cap2:"The workers behind the evenings are carrying the uncertainty, too",
      title:"The invitations keep coming. The answers are getting harder.",
      dek:"Canceled benefits and anxious guests are changing a charity circuit built on showing up. The workers behind the evenings are carrying the uncertainty, too.",
      byline:"City Life \u00b7 23 October 2026",cls:"v4"},
-    {tag:"Los Angeles",big:"The Grand<br>Pacific<em>.</em>",cap:"Four hundred witnesses, one last toast",cap2:"Detectives are reconstructing a night everyone saw",
+    {tag:"Los Angeles",img:"assets/grand-hotel-lobby.jpg",alt:"The lobby of a grand Los Angeles hotel",big:"The Grand<br>Pacific<em>.</em>",cap:"Four hundred witnesses, one last toast",cap2:"Detectives are reconstructing a night everyone saw",
      title:"Ray Delgado came to the Grand Pacific for his last toast. The guests left as witnesses.",
      dek:"The longtime Milagro Fund leader collapsed before four hundred people at his retirement gala. Detectives are reconstructing a night that everyone saw and nobody can yet explain.",
      byline:"Los Angeles \u00b7 20 October 2026",cls:"v5"}
@@ -675,6 +671,7 @@ footer{background:var(--black);color:var(--cream);padding:56px 0 32px}
     visual=i;
     var s=stories[i],ph=$("hero-ph");
     ph.className="ph"+(s.cls?" "+s.cls:"");
+    $("hero-img").src=s.img;$("hero-img").alt=s.alt;
     $("hero-tag").textContent=s.tag;
     $("hero-big").innerHTML=s.big;
     $("hero-cap").textContent=s.cap;

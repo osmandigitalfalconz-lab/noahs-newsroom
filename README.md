@@ -35,6 +35,15 @@ content from Noah Christopher's WLTLH newsroom (localnews.wltlh.com).
 | Morning edition 06:30 | The WLTLH Dispatch — "when the paper trail moves" |
 | Footer address / email / phone | Omitted — no contact details exist for WLTLH; footer links to wltlh.com, localnews.wltlh.com, books.wltlh.com |
 
+## Photos
+
+`assets/` holds 9 real photographs (CC BY / CC BY-SA, found via Openverse) —
+Walt Disney Concert Hall, Wilshire Boulevard, the downtown skyline over Echo
+Park Lake, a container yard, a stage cast, champagne flutes, a grand hotel
+lobby, a gavel and a stack of newspapers. Full credits and source links are in
+`assets/CREDITS.md` and in the page footer. They are generic Los Angeles
+scenes used as illustrations, not photographs of the fictional events reported.
+
 ## Rules followed
 
 - Every headline, dek, date, byline and chapter line is real copy from
